@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="袁梦祥的技术博客">
 <meta property="og:description" content="现在思考一个问题：用C语言要怎么实现从键盘输入50个整数再进行逆序输出？难道要一口气定义50个int型变量么。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://xn--10v407arml.top/assets/imgs/array.png">
-<meta property="og:image" content="https://xn--10v407arml.top/assets/imgs/string.png">
-<meta property="og:updated_time" content="2019-05-31T15:46:27.373Z">
+<meta property="og:image" content="https://xn--10v407arml.top/assets/img/array.png">
+<meta property="og:image" content="https://xn--10v407arml.top/assets/img/string.png">
+<meta property="og:updated_time" content="2019-05-31T15:51:19.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C 语言基础(三) 数组">
 <meta name="twitter:description" content="现在思考一个问题：用C语言要怎么实现从键盘输入50个整数再进行逆序输出？难道要一口气定义50个int型变量么。">
-<meta name="twitter:image" content="https://xn--10v407arml.top/assets/imgs/array.png">
+<meta name="twitter:image" content="https://xn--10v407arml.top/assets/img/array.png">
   
     <link rel="alternative" href="/atom.xml" title="袁梦祥的技术博客" type="application/atom+xml">
   
@@ -176,7 +176,7 @@
       
         <p>现在思考一个问题：用C语言要怎么实现从键盘输入50个整数再进行逆序输出？难道要一口气定义50个int型变量么。<br><a id="more"></a></p>
 <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组，是一种数据结构，代表的是一组相同类型的数据的集合,可以很方便的存储集合型数据,集合中的数据在内存中按顺序排放。</p>
-<p><img src="/assets/imgs/array.png" alt="数组"></p>
+<p><img src="/assets/img/array.png" alt="数组"></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type arrayName [ arraySize ]; <span class="comment">//数组的定义</span></span><br></pre></td></tr></table></figure>
 <p>type是数组中元素的类型，可以是一个有效的 C 数据类型。</p>
 <p>数组名，是数组的标识符。</p>
@@ -188,7 +188,7 @@
 </blockquote>
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>实际编程中，我们打交道最多的是对字符串的操作，C语言中的字符串实际上是内存中使用 null 字符 ‘\0’ 作为终止标识的一维字符数组，C语言编译器在输出字符串时，只要读到\0字符串，就认为当前字符串已经结束，直接输出前面的所有字符。</p>
 <p>如图：定义一个 “Hello” 字符串在内存中的表示</p>
-<p><img src="/assets/imgs/string.png" alt="字符串"></p>
+<p><img src="/assets/img/string.png" alt="字符串"></p>
 <p><strong>注意</strong>：使用双引号定义的字符串，是一个字符串常量，保存在代码段，所以是只读的，无法在程序中修改。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* 等价于 char greeting[6] = &#123;'H', 'e', 'l', 'l', 'o', '\0'&#125; </span></span><br><span class="line"><span class="comment">    是用数组赋值的形式初始化数组 */</span></span><br><span class="line">    <span class="keyword">char</span> str1[] = <span class="string">"Hello"</span>; </span><br><span class="line">    <span class="keyword">char</span> * str2 = <span class="string">"Hello"</span>; <span class="comment">// 指针指向字符串常量 无法修改</span></span><br><span class="line">    str2 = str1; <span class="comment">// 字符串就是数组，同样可以赋值给指针 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>字符串常用操作：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">char</span> str1[<span class="number">12</span>] = <span class="string">"Hello"</span>;</span><br><span class="line">   <span class="keyword">char</span> str2[<span class="number">12</span>] = <span class="string">"World"</span>;</span><br><span class="line">   <span class="keyword">char</span> str3[<span class="number">12</span>];</span><br><span class="line">   <span class="keyword">int</span>  len ;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/* 复制 str1 到 str3 */</span></span><br><span class="line">   <span class="built_in">strcpy</span>(str3, str1);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"strcpy( str3, str1) :  %s\n"</span>, str3 );</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/* 连接 str1 和 str2 */</span></span><br><span class="line">   <span class="built_in">strcat</span>( str1, str2);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"strcat( str1, str2):   %s\n"</span>, str1 );</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/* 连接后，str1 的总长度 */</span></span><br><span class="line">   len = <span class="built_in">strlen</span>(str1);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"strlen(str1) :  %d\n"</span>, len );</span><br><span class="line">   <span class="comment">/* 按单词的字典序比较，返回结果 0或&gt;0或&lt;0 */</span></span><br><span class="line">   <span class="built_in">strcmp</span>(str1, str2) <span class="comment">// 返回小于0的值</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>

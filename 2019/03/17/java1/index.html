@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="袁梦祥的技术博客">
 <meta property="og:description" content="C语言是典型的面向过程的编程语言，一个C程序可以看作是一系列函数的集合(自己列了个完成任务的步骤清单)。而一个Java程序则可以认为是一系列对象的集合，这些对象通过发送信息来协同工作(找了个对象，把要做的事情告诉他)。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://xn--10v407arml.top/assets/imgs/girl.png">
-<meta property="og:image" content="https://xn--10v407arml.top/assets/imgs/java_1.png">
-<meta property="og:image" content="https://xn--10v407arml.top/assets/imgs/java_3.png">
-<meta property="og:updated_time" content="2019-05-31T15:46:32.192Z">
+<meta property="og:image" content="https://xn--10v407arml.top/assets/img/girl.png">
+<meta property="og:image" content="https://xn--10v407arml.top/assets/img/java_1.png">
+<meta property="og:image" content="https://xn--10v407arml.top/assets/img/java_3.png">
+<meta property="og:updated_time" content="2019-05-31T15:51:20.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java快速入门">
 <meta name="twitter:description" content="C语言是典型的面向过程的编程语言，一个C程序可以看作是一系列函数的集合(自己列了个完成任务的步骤清单)。而一个Java程序则可以认为是一系列对象的集合，这些对象通过发送信息来协同工作(找了个对象，把要做的事情告诉他)。">
-<meta name="twitter:image" content="https://xn--10v407arml.top/assets/imgs/girl.png">
+<meta name="twitter:image" content="https://xn--10v407arml.top/assets/img/girl.png">
   
     <link rel="alternative" href="/atom.xml" title="袁梦祥的技术博客" type="application/atom+xml">
   
@@ -190,14 +190,14 @@
 </ul>
 <p>如果一切都是对象，那么什么决定了某一类对象的外观与行为呢。换句话说，什么决定了对象的类型？Java中一般使用class关键字，告诉程序，我想要的对象看起来是什么样子的。类就相当于是一个模板，它描述一类对象的行为和状态。从类中创建对象使用new 关键字。</p>
 <p>下图中女孩为类，而具体的每个人为该类的对象：</p>
-<p><img src="/assets/imgs/girl.png" alt></p>
+<p><img src="/assets/img/girl.png" alt></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Girl</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 成员变量</span></span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="comment">// 方法</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/* method body */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Girl Lisa = <span class="keyword">new</span> Girl();</span><br><span class="line">Lisa.name</span><br><span class="line">Lisa.say()</span><br></pre></td></tr></table></figure>
 <h3 id="内存表示"><a href="#内存表示" class="headerlink" title="内存表示"></a>内存表示</h3><ol>
 <li>栈 存放方法的调用信息以及方法中定义的局部变量</li>
 <li>堆 用于存放所有new出来的Java对象和对象中的成员变量</li>
 <li>方法区 类装载后保存在这个位置，存放的是类中定义的方法，基本类型常量和字符串常量、static修饰的全局变量和函数。</li>
 </ol>
-<p><img src="/assets/imgs/java_1.png" alt="java 内存"></p>
+<p><img src="/assets/img/java_1.png" alt="java 内存"></p>
 <h4 id="特例1：基本类型"><a href="#特例1：基本类型" class="headerlink" title="特例1：基本类型"></a>特例1：基本类型</h4><p>java中的变量通常保存的都是对象的引用，但对于基本类型数据，java采取和C语言相同的存储方式，不使用 new 来创建对象,而是直接在变量里存储值。所以在java中 == 运算符，如果是基本数据类型比较的是值，对引用类型比较的是地址。</p>
 <p>基本数据类型作为对象的成员变量时，即使没有进行变量初始化，也会有一个默认值。如果它是定义在方法中的普通局部变量，则不会进行默认初始化。</p>
 <h4 id="特例2：字符串字面量"><a href="#特例2：字符串字面量" class="headerlink" title="特例2：字符串字面量"></a>特例2：字符串字面量</h4><p>字符串对象非常特殊，一旦创建就不能被改变的。我们对字符串做操作时，实际上并没有改变原对象，而是直接创建了一个包含原始对象的新的对象。</p>
@@ -222,7 +222,7 @@
 <p>面向对象编程的一个重要特点就是数据封装。在上面的Student类中，每个Student的对象例如Lisa，拥有各自的name和score这些数据。我们可以通过方法来访问或者修改这些数据，比如打印一个学生的成绩。我们从外部看Student类，只需要知道创建实例需要给出name和score，而如何打印，是在Student类的内部定义的，这些数据和逻辑被“封装”起来了，使用者不用知道内部实现的细节，调用起来很容易。</p>
 <p>但是，从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的name、score属性。这是很不安全的，如果想让内部属性不被外部访问到，可以把属性的名称前加上private，代表只有类的内部可以访问这些数据。除了属性，对于方法也是类似，只暴露给用户他需要的接口。</p>
 <p>访问权限</p>
-<p><img src="/assets/imgs/java_3.png" alt="访问权限"><br>Java声明变量或方法的时候没有写上修饰符为default。</p>
+<p><img src="/assets/img/java_3.png" alt="访问权限"><br>Java声明变量或方法的时候没有写上修饰符为default。</p>
 <p>课堂练习：</p>
 <blockquote>
 <p>使用get，set方法改写Student类，隐藏内部属性的同时，保证设置属性时进行必要的参数检查。</p>

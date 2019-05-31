@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="袁梦祥的技术博客">
 <meta property="og:description" content="这节课简单介绍一下C语言的一些高级知识，帮助我们进一步理解C语言的本质。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://xn--10v407arml.top/assets/imgs/compile.png">
-<meta property="og:updated_time" content="2019-05-31T15:46:29.079Z">
+<meta property="og:image" content="https://xn--10v407arml.top/assets/img/compile.png">
+<meta property="og:updated_time" content="2019-05-31T15:51:19.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C 语言基础(五) 进阶">
 <meta name="twitter:description" content="这节课简单介绍一下C语言的一些高级知识，帮助我们进一步理解C语言的本质。">
-<meta name="twitter:image" content="https://xn--10v407arml.top/assets/imgs/compile.png">
+<meta name="twitter:image" content="https://xn--10v407arml.top/assets/img/compile.png">
   
     <link rel="alternative" href="/atom.xml" title="袁梦祥的技术博客" type="application/atom+xml">
   
@@ -175,7 +175,7 @@
       
         <p>这节课简单介绍一下C语言的一些高级知识，帮助我们进一步理解C语言的本质。<br><a id="more"></a></p>
 <h3 id="程序编译过程"><a href="#程序编译过程" class="headerlink" title="程序编译过程"></a>程序编译过程</h3><p>源程序到可执行程序的四个阶段如图所示，GCC编译C源代码有四个步骤：预处理—-&gt;编译—-&gt;汇编—-&gt;链接。</p>
-<p><img src="/assets/imgs/compile.png" alt="编译"></p>
+<p><img src="/assets/img/compile.png" alt="编译"></p>
 <p>以下c语言源码作为例子：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	zero 0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"happy every day!\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> zero;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="1-预处理阶段（-c—-i）"><a href="#1-预处理阶段（-c—-i）" class="headerlink" title="1. 预处理阶段（.c—.i）"></a>1. 预处理阶段（.c—.i）</h4><p>编译器将C程序用 # 开头的语句全部替换，包括头文件的替换和宏定义的替换，去除所有的注释。在例子中 &lt;stdio.h&gt; 会替换为头文件，C文件中所有的宏定义zero被替换为0</p>

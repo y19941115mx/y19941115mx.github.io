@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="袁梦祥的技术博客">
 <meta property="og:description" content="现代高级编程语言中，C语言在运算速度和执行效率方面可以说是难逢敌手，甚至很多流行的编程语言，例如 java 和 python，它们很多底层的实现都使用的C语言。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://xn--10v407arml.top/assets/imgs/memory.png">
-<meta property="og:updated_time" content="2019-05-31T15:46:25.965Z">
+<meta property="og:image" content="https://xn--10v407arml.top/assets/img/memory.png">
+<meta property="og:updated_time" content="2019-05-31T15:51:18.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C 语言基础(三) 指针">
 <meta name="twitter:description" content="现代高级编程语言中，C语言在运算速度和执行效率方面可以说是难逢敌手，甚至很多流行的编程语言，例如 java 和 python，它们很多底层的实现都使用的C语言。">
-<meta name="twitter:image" content="https://xn--10v407arml.top/assets/imgs/memory.png">
+<meta name="twitter:image" content="https://xn--10v407arml.top/assets/img/memory.png">
   
     <link rel="alternative" href="/atom.xml" title="袁梦祥的技术博客" type="application/atom+xml">
   
@@ -183,7 +183,7 @@
 <p>每种编程语言都有自己操作内存的方式，而C语言的变量由于直接存储值，其本质就是内存，每个变量对应于一个特定大小的内存单元。变量存储值和变量的地址（对变量使用取地址符号&amp;），就对应了内存空间的存值和内存地址。</p>
 <h4 id="C程序的内存分配"><a href="#C程序的内存分配" class="headerlink" title="C程序的内存分配"></a>C程序的内存分配</h4><p>用户在运行一个程序时，程序不是整个加载到内存中，而是分块载入到不同的内存区域，通常，程序所访问到的地址都是逻辑地址，并不是真实的物理地址，这个逻辑地址是操作系统提供的，CPU在执行指令时需要先将指令的逻辑地址变换为物理地址才能对相应的存储单元进行数据的读取或者写入（注意逻辑地址和物理地址是一一对应的）。</p>
 <p>这里介绍一下C程序执行时，Linux操作系统为程序分配的内存情况。左边代表的是自下而上递增的内存空间，右边是对应的内存分配。</p>
-<p><img src="/assets/imgs/memory.png" alt="内存分配"></p>
+<p><img src="/assets/img/memory.png" alt="内存分配"></p>
 <h5 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h5><p>由编译器自动分配释放，每当一个函数被调用，函数的返回地址和调用信息等会被存储到栈区（函数进栈），然后这个被调用的函数会为它的局部变量和函数形参在栈区上分配空间。</p>
 <p>栈是由高地址向低地址扩展(栈底在上)，有先进后出的特点，即依次定义两个局部变量，首先定义的变量地址是高地址，往后定义的变量地址是低地址。</p>
 <h5 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h5><p>存放程序运行中动态分配的存储空间。它的大小，并不固定，可动态扩张或缩放。当进程调用malloc/free等函数分配内存时，新分配的内存就被动态添加到堆上（堆被扩张）/释放的内存从堆中被提出（堆被缩减）。堆是低地址向高地址扩展的，是一块不连续的内存区域（和数据结构中的堆是两回事）</p>
